@@ -82,7 +82,7 @@ The goal of this lab is to run a simple ROS2 code.
 
 6. Use this command to create the workspcae 
     ```bash
-    mkdir ENAE450_ws/src
+    mkdir -p /ENAE450_ws/src
     ```
     Navigate into the `src` folder of your `ENAE450_ws` workspace and create *lab1* package:
     ```bash
