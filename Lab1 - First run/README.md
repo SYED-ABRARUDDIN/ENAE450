@@ -80,7 +80,7 @@ The goal of this lab is to run a simple ROS2 code.
 
 **Note** The above steps will be common for all of the labs and I will refer to them in the beginning of each lab guide. 
 
-6. Use this command to create the workspcae 
+6. Use this command to create the workspace 
     ```bash
     mkdir -p ENAE450_ws/src
     ```
