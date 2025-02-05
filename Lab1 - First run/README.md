@@ -38,7 +38,7 @@ The goal of this lab is to run a simple ROS2 code.
 3. Clone the repository for this class if you haven't done it yet:
 
     ```bash
-    git clone https://github.com/MarylandRoboticsCenter/ENAE450
+    git clone https://github.com/SYED-ABRARUDDIN/ENAE450.git
     ```
     If you already cloned the repository, make sure all updates are pulled:
 
