@@ -80,7 +80,11 @@ The goal of this lab is to run a simple ROS2 code.
 
 **Note** The above steps will be common for all of the labs and I will refer to them in the beginning of each lab guide. 
 
-6. Navigate into the `src` folder of your `ENAE450_ws` workspace and create *lab1* package:
+6. Use this command to create the workspcae 
+    ```bash
+    mkdir ENAE450_ws/src
+    ```
+    Navigate into the `src` folder of your `ENAE450_ws` workspace and create *lab1* package:
     ```bash
     ros2 pkg create --build-type ament_python lab1_package --dependencies rclpy
     ```
