@@ -56,4 +56,4 @@ An additional five points will be allocated in each homework assignment for styl
 
 ---
 
-End of **README.md**.
+You can check Lab2.docx in the repository if you don't understand anything in Readme!
