@@ -21,6 +21,8 @@ In a pdf file, turn in the image of the rqt graph that you created, as well as t
 
 Here is a representation of the graph you should get at the end. The blue boxes are nodes and the green boxes are topics. 
 
+![rqt graph](Picture2.jpg)
+
 You will create two nodes from scratch. In the first one you’ll have 1 publisher, and in the second one, one publisher and one subscriber. 
 
 - The **number_publisher** node publishes a number (always the same number) on the **"/number"** topic, with the existing type **example_interfaces/msg/Int64**. 
