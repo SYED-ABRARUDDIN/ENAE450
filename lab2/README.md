@@ -11,6 +11,9 @@
 
 Here is a graph that shows some nodes run with names changed. Your goal is to get the same. You’ll need to start with 4 nodes. Two of those nodes are from the turtlesim package, and two are from nodes you have already written. No need to write any new code here, you just have to start the nodes from your terminal, using the appropriate commands. 
 
+![rqt graph](Picture1.jpg)
+
+
 In a pdf file, turn in the image of the rqt graph that you created, as well as the terminal commands that you used to create the graph. 
 
 ---
