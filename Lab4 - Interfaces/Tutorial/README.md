@@ -1,52 +1,52 @@
-# Lab 3
+# Lab 4
 
 ## General overview
 
-The goal of this lab is to start ROS2 client and server services.
+The goal of this lab is to create custom ROS2 message and service.
 
 ## Useful links
 
-1. [Understanding services](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html)
-2. [Writing a simple service and client (Python)](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html)
-3. API docs for Service Client ([old](https://docs.ros2.org/foxy/api/rclpy/api/services.html#module-rclpy.client), [new](https://docs.ros.org/en/iron/p/rclpy/rclpy.client.html)), Service Server ([old](https://docs.ros2.org/foxy/api/rclpy/api/services.html#module-rclpy.service), [new](https://docs.ros.org/en/iron/p/rclpy/rclpy.service.html))
-4. [Source code for minimal service client examples](https://github.com/ros2/examples/tree/humble/rclpy/services/minimal_client/examples_rclpy_minimal_client)
-5. [Source code for minimal service server examples](https://github.com/ros2/examples/tree/humble/rclpy/services/minimal_service/examples_rclpy_minimal_service)
+1. [Creating custom msg and srv files](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html)
 
 ## Steps
 
 **The commands given in each step below are meant to be entered in the terminal unless stated otherwise**.
 
-1. See Lab1 step.
-2. See Lab1 step.
-3. See Lab1 step.
-4. See Lab1 step.
-5. See Lab1 step.
+1. Repeat steps 1-5 from Lab1.
 
-6. Navigate into the `src` folder of your `ENAE450_ws` workspace and create *lab3* package:
+2. Navigate into the `src` folder of your `ENAE450_ws` workspace and create new package:
     ```bash
-    ros2 pkg create --build-type ament_python lab3_package --dependencies rclpy
+    ros2 pkg create --build-type ament_cmake interface_package --dependencies rclcpp
     ```
 
-7. Open VS Code (or other IDE of choice) on your host PC and open `ENAE450_ws` folder
-
-8. From folder `Lab3/files` copy files `client_async_member_function.py`and `service_member_function.py` into `ENAE450/ENAE450_ws/src/lab3_package/lab3_package` folder.
-
-9. **In VS Code** Edit `ENAE450/ENAE450_ws/src/lab3_package/setup.py` file and make sure *entry_points* has the following:
-    ```
-    'console_scripts': [
-        "py_my_client = lab3_package.client_async_member_function:main",
-        "py_my_server = lab3_package.service_member_function:main"
-    ],
-    ```
-
-10. Navigate to `ENAE450/ENAE450_ws/src/lab3_package/lab3_package` folder and add execution permission to the python files:
+3. Create `msg` and `srv` folders in the new package (in `ENAE450/ENAE450_ws/src/interface_package`)
     ```bash
-    chmod u+x client_async_member_function.py service_member_function.py
+    mkdir msg srv
     ```
 
-11. Navigate to the `ENAE450_ws` folder and build the package by running `colcon` script:
+3. Open VS Code (or other IDE of choice) on your host PC and open `ENAE450_ws` folder
+
+8. From folder `Lab4/files` copy files `SingleArray.msg`and `AddThreeInts.srv` into `ENAE450/ENAE450_ws/src/interface_package/msg` and `ENAE450/ENAE450_ws/src/interface_package/srv` folders correspondingly.
+
+9. Edit `CMakeLists.txt` file of `interface_package` to add the following lines
+    ```
+    find_package(rosidl_default_generators REQUIRED)
+    rosidl_generate_interfaces(${PROJECT_NAME}
+    "msg/SingleArray.msg"
+    "srv/AddThreeInts.srv"
+    )
+    ```
+
+10. Edit `package.xml` file of `interface_package` to add the following lines
+    ```
+    <buildtool_depend>rosidl_default_generators</buildtool_depend>
+    <exec_depend>rosidl_default_runtime</exec_depend>
+    <member_of_group>rosidl_interface_packages</member_of_group>
+    ```
+
+11. Navigate to the `ENAE450_ws` folder and build `interface_package` by running `colcon` script:
     ```bash
-    colcon build --symlink-install
+    colcon build --packages-select interface_package
     ```
 
 12. Add the built package to the list of ROS2 packages available for running
@@ -54,18 +54,8 @@ The goal of this lab is to start ROS2 client and server services.
     source install/setup.bash
     ```
 
-13. Start *tmux* session:
+14. List the available ROS2 interfaces and verify the new message and service are now available
     ```bash
-    tmux new-session \; \split-window -h \; \select-pane -t 1 \; \split-window -v
-
+    ros2 interface list
     ```
-
-14. In one of the smaller panes run
-    ```bash
-    ros2 run lab3_package py_my_server
-    ```
-    In the other smaller pane run
-    ```bash
-    ros2 run lab3_package py_my_client
-    ```    
-    The third pane can be used to inverstigate the nodes and services.
+    Inverstigate structure of the new message and service.
