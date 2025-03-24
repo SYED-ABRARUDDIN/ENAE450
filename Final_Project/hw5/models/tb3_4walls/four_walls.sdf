@@ -1,0 +1,157 @@
+<sdf version='1.7'>
+  <model name='white_wall'>
+    <static>1</static>
+    <link name='link_wall'>
+
+      <collision name='wall_1'>
+        <pose>0 3.0 0.5 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8.0 0.2 1.0</size>
+          </box>
+        </geometry>
+        <max_contacts>10</max_contacts>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <bounce/>
+          <friction>
+            <torsional>
+              <ode/>
+            </torsional>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name='wall_1'>
+        <pose>0 3.0 0.5 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8.0 0.2 1.0</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='wall_2'>
+        <pose>0 -3.0 0.5 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8.0 0.2 1.0</size>
+          </box>
+        </geometry>
+        <max_contacts>10</max_contacts>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <bounce/>
+          <friction>
+            <torsional>
+              <ode/>
+            </torsional>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name='wall_2'>
+        <pose>0 -3.0 0.5 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8.0 0.2 1.0</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='wall_3'>
+        <pose>4.0 0 0.5 0 -0 1.57</pose>
+        <geometry>
+          <box>
+            <size>6.0 0.2 1.0</size>
+          </box>
+        </geometry>
+        <max_contacts>10</max_contacts>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <bounce/>
+          <friction>
+            <torsional>
+              <ode/>
+            </torsional>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='wall_3'>
+        <pose>4.0 0 0.5 0 -0 1.57</pose>
+        <geometry>
+          <box>
+            <size>6.0 0.2 1.0</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>      
+
+      <collision name='wall_4'>
+        <pose>-4.0 0 0.5 0 -0 1.57</pose>
+        <geometry>
+          <box>
+            <size>6.0 0.2 1.0</size>
+          </box>
+        </geometry>
+        <max_contacts>10</max_contacts>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <bounce/>
+          <friction>
+            <torsional>
+              <ode/>
+            </torsional>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='wall_4'>
+        <pose>-4.0 0 0.5 0 -0 1.57</pose>
+        <geometry>
+          <box>
+            <size>6.0 0.2 1.0</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>      
+
+      <self_collide>0</self_collide>
+      <enable_wind>0</enable_wind>
+      <kinematic>0</kinematic>
+    </link>
+  </model>
+</sdf>
